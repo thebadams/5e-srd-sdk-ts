@@ -3,7 +3,13 @@ import axios from 'axios';
 export default abstract class Spell {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/spells';
 	public static async FindAll() {
-		const response = await axios.get(this.#BASE_URL)
-		console.log(response);
+		try {
+			const response = await axios.get(this.#BASE_URL);
+			return response.data
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API'
+			}
+		}
 	}
 }
