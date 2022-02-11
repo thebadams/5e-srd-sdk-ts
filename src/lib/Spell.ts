@@ -1,5 +1,19 @@
 import axios from 'axios';
 
+export type SpellLevels = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+enum SPELL_LEVELS {
+	CANTRIP,
+	ONE,
+	TWO,
+	THREE,
+	FOUR,
+	FIVE,
+	SIX,
+	SEVEN,
+	EIGHT,
+	NINE
+}
+
 export default abstract class Spell {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/spells';
 	public static async FindAll() {
@@ -20,6 +34,21 @@ export default abstract class Spell {
 		} catch (error) {
 			if(error) {
 				return 'There was an error connecting to the API'
+			}
+		}
+	}
+
+	public static async FindByLevels(levelsArray: SpellLevels[]) {
+		const levelsString = levelsArray.join(',');
+	//	console.log(levelsString);
+		const url = `${this.#BASE_URL}?level=${levelsString}`;
+		//console.log(url)
+		try {
+			const response = await axios.get(url);
+			return response.data
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API';
 			}
 		}
 	}

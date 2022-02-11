@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "An NPM module that links into the Dungeons and Dragons 5e SRD API found at https://www.dnd5eapi.co, built using typescript",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
