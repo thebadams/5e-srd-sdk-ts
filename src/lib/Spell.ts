@@ -1,19 +1,20 @@
 import axios from 'axios';
 
 export type SpellLevels = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-enum SPELL_LEVELS {
-	CANTRIP,
-	ONE,
-	TWO,
-	THREE,
-	FOUR,
-	FIVE,
-	SIX,
-	SEVEN,
-	EIGHT,
-	NINE
-}
+// enum SPELL_LEVELS {
+// 	CANTRIP,
+// 	ONE,
+// 	TWO,
+// 	THREE,
+// 	FOUR,
+// 	FIVE,
+// 	SIX,
+// 	SEVEN,
+// 	EIGHT,
+// 	NINE
+// }
 
+export type SpellSchools = 'Abjuration' | 'Evocation' | 'Divination' | 'Necromancy' | 'Enchantment' | 'Transmutation' | 'Illusion' | 'Conjuration';
 export default abstract class Spell {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/spells';
 	public static async FindAll() {
@@ -49,6 +50,19 @@ export default abstract class Spell {
 		} catch (error) {
 			if(error) {
 				return 'There was an error connecting to the API';
+			}
+		}
+	}
+
+	public static async FindBySchool(schoolsArray: SpellSchools[]) {
+		const schoolString = schoolsArray.join(',');
+		const url = `${this.#BASE_URL}?school=${schoolString}`;
+		try {
+			const response = await axios.get(url);
+			return response.data;
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API'
 			}
 		}
 	}
