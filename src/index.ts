@@ -6,4 +6,6 @@ import Spell from './lib/Spell.js';
 
 //Spell.FindByLevels([0]).then(res => console.log(res));
 
-Spell.FindBySchool(['Transmutation', 'Abjuration']).then(res => console.log(res));
+// Spell.FindBySchool(['Transmutation', 'Abjuration']).then(res => console.log(res));
+
+export { Spell };
