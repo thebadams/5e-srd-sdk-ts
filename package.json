@@ -1,6 +1,6 @@
 {
 	"name": "@thebadams/5e-srd-sdk",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "An NPM module that links into the Dungeons and Dragons 5e SRD API found at https://www.dnd5eapi.co, built using typescript",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

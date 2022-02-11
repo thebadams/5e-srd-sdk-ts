@@ -14,6 +14,12 @@ export type SpellLevels = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 // 	NINE
 // }
 
+export interface SpellsQueryConfig {
+	school?: SpellSchools;
+	level?: SpellLevels;
+	index?: string;
+}
+
 export type SpellSchools = 'Abjuration' | 'Evocation' | 'Divination' | 'Necromancy' | 'Enchantment' | 'Transmutation' | 'Illusion' | 'Conjuration';
 export default abstract class Spell {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/spells';
@@ -64,6 +70,14 @@ export default abstract class Spell {
 			if(error) {
 				return 'There was an error connecting to the API'
 			}
+		}
+	}
+
+	public static async Find(queryConfig: SpellsQueryConfig) {
+		const queryArray = Object.keys(queryConfig);
+		console.log(queryArray)
+		if(queryArray.length === 0) {
+			return this.FindAll();
 		}
 	}
 }
