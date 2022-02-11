@@ -74,10 +74,16 @@ export default abstract class Spell {
 	}
 
 	public static async Find(queryConfig: SpellsQueryConfig) {
-		const queryArray = Object.keys(queryConfig);
+		const queryArray = Object.entries(queryConfig);
 		console.log(queryArray)
 		if(queryArray.length === 0) {
 			return this.FindAll();
 		}
+		for(const [key, value] of queryArray) {
+			if(key === 'index') {
+				return this.GetByIndex(value);
+			}
+		}
+
 	}
 }

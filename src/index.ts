@@ -8,6 +8,6 @@ import Spell from './lib/Spell.js';
 
 // Spell.FindBySchool(['Transmutation', 'Abjuration']).then(res => console.log(res));
 
-Spell.Find({}).then(data => console.log(data))
+Spell.Find({ index: 'acid-arrow', level: 1 }).then(data => console.log(data))
 
 export { Spell };
