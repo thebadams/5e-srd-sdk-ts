@@ -91,5 +91,16 @@ export default abstract class Class {
 			}
 		}
 	}
+
+	public static async GetLevelsInfoByIndex(index: string) {
+		try {
+			const response = await axios.get(`${this.#BASE_URL}/${index}/levels`);
+			return response.data
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API';
+			}
+		}
+	}
 }
 
