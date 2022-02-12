@@ -91,6 +91,9 @@ export default abstract class Spell {
 					const query = `${key}=${string}`
 					queries.push(query);
 					
+				} else {
+					const query = `${key}=${value}`
+					queries.push(query);
 				}
 			
 			}
