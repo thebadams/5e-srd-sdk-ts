@@ -43,6 +43,11 @@ import Class from './lib/Class.js';
 //.then(data => console.log(data)); // should log bard' level 4 information
 
 //Class.GetFeaturesByLevel('bard', 4)
-Class.GetFeaturesByLevel('bard', 4)
-.then(data => console.log(data)); // shoud log bard's level 4 features
+//Class.GetFeaturesByLevel('bard', 4)
+//.then(data => console.log(data)); // shoud log bard's level 4 features/
+
+//Class.GetSpellsByLevel('bard', 4)
+Class.GetSpellsByLevel('bard', 9)
+.then(data => console.log(data));
+
 export { Spell, Class };

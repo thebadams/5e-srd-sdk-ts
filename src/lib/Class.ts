@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SpellLevels } from './Spell';
 
 export type ClassLevels = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
 
@@ -124,6 +125,17 @@ export default abstract class Class {
 			if(error) {
 				return 'There was an error connecting to the API'
 			}	
+		}
+	}
+
+	public static async GetSpellsByLevel(index: string, level: SpellLevels) {
+		try {
+			const response = await axios.get(`${this.#BASE_URL}/${index}/levels/${level}/spells`);
+			return response.data;
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API';
+			}
 		}
 	}
 }
