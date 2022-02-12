@@ -68,5 +68,16 @@ export default abstract class Class {
 			}
 		}
 	}
+
+	public static async GetProficienciesByIndex(index: string) {
+		try {
+			const response = await axios.get(`${this.#BASE_URL}/${index}/proficiencies`);
+			return response.data;
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API';
+			}
+		}
+	}
 }
 

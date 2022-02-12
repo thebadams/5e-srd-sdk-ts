@@ -23,6 +23,10 @@ import Class from './lib/Class.js';
 
 
 //Class.GetFeaturesByIndex('bard')
-Class.GetFeaturesByIndex('bard')
-.then(data => console.log(data)); // should log bard's features
+///Class.GetFeaturesByIndex('bard')
+//.then(data => console.log(data)); // should log bard's features
+
+//Class.GetProficienciesByIndex('bard')
+Class.GetProficienciesByIndex('bard')
+.then(data => console.log(data)); // should log bard's proficienices
 export { Spell, Class };
