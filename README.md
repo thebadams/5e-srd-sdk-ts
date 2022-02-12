@@ -37,3 +37,26 @@ Accepts an array of spell schools
 ```typescript
 Spell.FindBySchool(['Abjuration', 'Illusion']).then(data => console.log(data));
 ```
+
+### Find
+A catchall method that accepts a query config object and parses the information, returning the correct response based upon what is passed in.
+
+```typescript
+// The configuration object follows the following interface:
+interface SpellQueryConfig {
+	index?: string;
+	level?: SpellLevel[] | SpellLevel
+	school?: SpellSchools[] | SpellSchool
+}
+
+//EXAMPLES
+
+Spell.Find({}); // returns the same response as Spell.FindAll()
+
+Spell.Find({index: 'acid-arrow'}) // returns the same response as Spell.GetByIndex('acid-arrow');
+//Any configuration object passed in with the index key will return a response as if Spell.GetByIndex was called.
+
+Spell.Find({level: [1, 7], school: ['Abjuration', 'Conjuration']}) // Will return response of Spells in the schools listed & the levels listed.
+
+Spell.Find({level: 1, school: 'Abjuration'}) // Will return response of Spells in Abjuration school of level 1
+```
