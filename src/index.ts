@@ -13,7 +13,12 @@ import Class from './lib/Class.js';
 //Class.GetSubclassByIndex('bard')
 //.then(data => console.log(data)); // should log bard's subclasses in the srd
 
-//Class.GetClassSpellsByIndex('bard')
-Class.GetClassSpellsByIndex('bard')
-.then(data => console.log(data)); // should log bard's class spells
+//Class.GetSpellsByIndex('bard')
+// Class.GetSpellsByIndex('bard')
+// .then(data => console.log(data)); // should log bard's class spells
+
+//Class.GetSpellcastingByIndex('bard')
+Class.GetSpellcastingByIndex('bard')
+.then(data => console.log(data)); // should log bard's spellcasting ability information
+
 export { Spell, Class };

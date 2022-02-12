@@ -36,9 +36,20 @@ export default abstract class Class {
 		}
 	}
 
-	public static async GetClassSpellsByIndex(index: string) {
+	public static async GetSpellsByIndex(index: string) {
 		try {
 			const response = await axios.get(`${this.#BASE_URL}/${index}/spells`);
+			return response.data;
+		} catch (error) {
+			if(error) {
+				return 'There was an error connecting to the API';
+			}
+		}
+	}
+
+	public static async GetSpellcastingByIndex(index: string) {
+		try {
+			const response = await axios.get(`${this.#BASE_URL}/${index}/spellcasting`);
 			return response.data;
 		} catch (error) {
 			if(error) {
