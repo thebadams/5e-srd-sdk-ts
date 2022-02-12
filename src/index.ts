@@ -27,6 +27,10 @@ import Class from './lib/Class.js';
 //.then(data => console.log(data)); // should log bard's features
 
 //Class.GetProficienciesByIndex('bard')
-Class.GetProficienciesByIndex('bard')
-.then(data => console.log(data)); // should log bard's proficienices
+//Class.GetProficienciesByIndex('bard')
+//.then(data => console.log(data)); // should log bard's proficienices
+
+//Class.GetMulticlassingByIndex('bard);
+Class.GetMulticlassingByIndex('bard')
+.then(data => console.log(data)); // should log bard's multiclassing requirements
 export { Spell, Class };
