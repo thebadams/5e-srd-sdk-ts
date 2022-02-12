@@ -52,7 +52,10 @@ import Class from './lib/Class.js';
 
 //Testing Refactor: Spell.FindAll()
 
-Spell.FindAll()
+// Spell.FindAll()
+// .then(data => console.log(data));
+
+Spell.GetByIndex('acid-arrow')
 .then(data => console.log(data));
 
 export { Spell, Class };

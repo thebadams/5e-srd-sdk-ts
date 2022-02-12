@@ -36,15 +36,8 @@ export default abstract class Spell {
 		return this.#QueryAPI(`${this.#BASE_URL}`);
 	}
 
-	public static async GetByIndex(index: string) {
-		try {
-			const response = await axios.get(`${this.#BASE_URL}/${index}`);
-			return response.data
-		} catch (error) {
-			if(error) {
-				return 'There was an error connecting to the API'
-			}
-		}
+	public static GetByIndex(index: string) {
+		return this.#QueryAPI(`${this.#BASE_URL}/${index}`)
 	}
 
 	public static async FindByLevels(levelsArray: SpellLevels[]) {
