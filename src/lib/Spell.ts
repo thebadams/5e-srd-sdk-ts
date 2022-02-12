@@ -48,17 +48,10 @@ export default abstract class Spell {
 		return this.#QueryAPI(url)
 	}
 
-	public static async FindBySchool(schoolsArray: SpellSchools[]) {
+	public static FindBySchool(schoolsArray: SpellSchools[]) {
 		const schoolString = schoolsArray.join(',');
 		const url = `${this.#BASE_URL}?school=${schoolString}`;
-		try {
-			const response = await axios.get(url);
-			return response.data;
-		} catch (error) {
-			if(error) {
-				return 'There was an error connecting to the API'
-			}
-		}
+		return this.#QueryAPI(url);
 	}
 
 	public static async Find(queryConfig: SpellsQueryConfig) {
