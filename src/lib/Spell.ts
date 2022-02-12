@@ -40,19 +40,12 @@ export default abstract class Spell {
 		return this.#QueryAPI(`${this.#BASE_URL}/${index}`)
 	}
 
-	public static async FindByLevels(levelsArray: SpellLevels[]) {
+	public static FindByLevels(levelsArray: SpellLevels[]) {
 		const levelsString = levelsArray.join(',');
 	//	console.log(levelsString);
 		const url = `${this.#BASE_URL}?level=${levelsString}`;
 		//console.log(url)
-		try {
-			const response = await axios.get(url);
-			return response.data
-		} catch (error) {
-			if(error) {
-				return 'There was an error connecting to the API';
-			}
-		}
+		return this.#QueryAPI(url)
 	}
 
 	public static async FindBySchool(schoolsArray: SpellSchools[]) {

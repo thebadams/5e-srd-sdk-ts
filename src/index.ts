@@ -55,7 +55,10 @@ import Class from './lib/Class.js';
 // Spell.FindAll()
 // .then(data => console.log(data));
 
-Spell.GetByIndex('acid-arrow')
+// Spell.GetByIndex('acid-arrow')
+// .then(data => console.log(data));
+
+Spell.FindByLevels([1,9])
 .then(data => console.log(data));
 
 export { Spell, Class };
