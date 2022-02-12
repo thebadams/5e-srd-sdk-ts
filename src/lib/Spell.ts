@@ -23,15 +23,17 @@ export interface SpellsQueryConfig {
 export type SpellSchools = 'Abjuration' | 'Evocation' | 'Divination' | 'Necromancy' | 'Enchantment' | 'Transmutation' | 'Illusion' | 'Conjuration';
 export default abstract class Spell {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/spells';
-	public static async FindAll() {
+
+	static async #QueryAPI(url: string) {
 		try {
-			const response = await axios.get(this.#BASE_URL);
-			return response.data
+			const response = await axios.get(url);
+			return response.data;
 		} catch (error) {
-			if(error) {
-				return 'There was an error connecting to the API'
-			}
+			if(error) return 'There was an error connecting to the API';
 		}
+	}
+	public static FindAll() {
+		return this.#QueryAPI(`${this.#BASE_URL}`);
 	}
 
 	public static async GetByIndex(index: string) {

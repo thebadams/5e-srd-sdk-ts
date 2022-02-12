@@ -47,7 +47,12 @@ import Class from './lib/Class.js';
 //.then(data => console.log(data)); // shoud log bard's level 4 features/
 
 //Class.GetSpellsByLevel('bard', 4)
-Class.GetSpellsByLevel('bard', 9)
+//Class.GetSpellsByLevel('bard', 9)
+//.then(data => console.log(data));
+
+//Testing Refactor: Spell.FindAll()
+
+Spell.FindAll()
 .then(data => console.log(data));
 
 export { Spell, Class };
