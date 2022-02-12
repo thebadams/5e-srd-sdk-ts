@@ -15,8 +15,8 @@ export type SpellLevels = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 // }
 
 export interface SpellsQueryConfig {
-	school?: SpellSchools;
-	level?: SpellLevels;
+	school?: SpellSchools[] | SpellSchools;
+	level?: SpellLevels[] | SpellLevels;
 	index?: string;
 }
 
@@ -79,11 +79,34 @@ export default abstract class Spell {
 		if(queryArray.length === 0) {
 			return this.FindAll();
 		}
+		let url = this.#BASE_URL;
+		let queryString = '?'
+		let queries: string[] = [];
 		for(const [key, value] of queryArray) {
 			if(key === 'index') {
 				return this.GetByIndex(value);
+			} else if(key === 'level' || key === 'school') {
+				if(Array.isArray( value)) {
+					const string = value.join(',');
+					const query = `${key}=${string}`
+					queries.push(query);
+					
+				}
+			
 			}
 		}
+		queryString = `${queryString}${queries.join('&')}`
+		url = `${url}${queryString}`
+		console.log(url)
+		try {
+			const response = await axios.get(url);
+			return response.data
+		} catch (error) {
+			if (error) {
+				return 'There was an error connecting to the API'
+			}
+		}
+		
 
 	}
 }
