@@ -18,7 +18,11 @@ import Class from './lib/Class.js';
 // .then(data => console.log(data)); // should log bard's class spells
 
 //Class.GetSpellcastingByIndex('bard')
-Class.GetSpellcastingByIndex('bard')
-.then(data => console.log(data)); // should log bard's spellcasting ability information
+//Class.GetSpellcastingByIndex('bard')
+//.then(data => console.log(data)); // should log bard's spellcasting ability information
 
+
+//Class.GetFeaturesByIndex('bard')
+Class.GetFeaturesByIndex('bard')
+.then(data => console.log(data)); // should log bard's features
 export { Spell, Class };
