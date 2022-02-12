@@ -61,7 +61,16 @@ import Class from './lib/Class.js';
 // Spell.FindByLevels([1,9])
 // .then(data => console.log(data));
 
-Spell.FindBySchool(['Divination'])
-.then(data => console.log(data));
+// Spell.FindBySchool(['Divination'])
+// .then(data => console.log(data));
+
+// Spell.Find({index: 'acid-arrow'})
+// .then(data => console.log(data));
+
+// Spell.Find({})
+// .then(data => console.log(data));
+
+// Spell.Find({level: [1, 3], school: 'Abjuration'})
+// .then(data => console.log(data));
 
 export { Spell, Class };

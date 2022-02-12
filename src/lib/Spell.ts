@@ -82,14 +82,7 @@ export default abstract class Spell {
 		queryString = `${queryString}${queries.join('&')}`
 		url = `${url}${queryString}`
 		console.log(url)
-		try {
-			const response = await axios.get(url);
-			return response.data
-		} catch (error) {
-			if (error) {
-				return 'There was an error connecting to the API'
-			}
-		}
+		return this.#QueryAPI(url)
 		
 
 	}
