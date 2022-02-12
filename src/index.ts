@@ -34,7 +34,11 @@ import Class from './lib/Class.js';
 //Class.GetMulticlassingByIndex('bard')
 //.then(data => console.log(data)); // should log bard's multiclassing requirements
 
-//Class.GetLevelInfoByIndex('bard');
-Class.GetLevelsInfoByIndex('bard')
-.then(data => console.log(data)); // should log bard's level information
+//Class.GetAllLevelInfoByIndex('bard');
+//Class.GetAllLevelsInfoByIndex('bard')
+//.then(data => console.log(data)); // should log bard's level information
+
+//Class.GetLevelInfoByIndex('bard', 4)
+Class.GetLevelInfoByIndex('bard', 4)
+.then(data => console.log(data)); // should log bard' level 4 information
 export { Spell, Class };

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export type ClassLevels = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
+
 export default abstract class Class {
 	static readonly #BASE_URL = 'https://www.dnd5eapi.co/api/classes'
 
@@ -92,13 +94,24 @@ export default abstract class Class {
 		}
 	}
 
-	public static async GetLevelsInfoByIndex(index: string) {
+	public static async GetAllLevelsInfoByIndex(index: string) {
 		try {
 			const response = await axios.get(`${this.#BASE_URL}/${index}/levels`);
 			return response.data
 		} catch (error) {
 			if(error) {
 				return 'There was an error connecting to the API';
+			}
+		}
+	}
+
+	public static async GetLevelInfoByIndex(index: string, level: ClassLevels) {
+		try {
+			const response = await axios.get(`${this.#BASE_URL}/${index}/levels/${level}`);
+			return response.data;
+		} catch (error) {
+			if(error) {
+				return `There was an error connecting to the API`;
 			}
 		}
 	}
